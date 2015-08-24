@@ -1,0 +1,42 @@
+<html>
+    <head></head>
+    <body>
+    </body>
+    <script src='elm.js'></script>
+    <script>
+        function nameToFileName(name) {
+            return "assets/sound/"+name+".wav";
+        }
+
+        var game = Elm.fullscreen(Elm.Keepaway, {}),
+        	soundFiles = [
+        		'coin', 'drop'
+        	],
+        	audioElements = {},
+        	i,
+        	coin,
+        	fileName,
+            music = new Audio(nameToFileName('recording'));
+
+        music.loop = true;
+        // oh god the madness ensues
+        // music.play();
+
+        for (i=0; i<soundFiles.length; i++) {
+        	fileName = nameToFileName(soundFiles[i]);
+
+        	audioElements[fileName] = new Audio(fileName);
+        }
+
+        game.ports.playSound.subscribe(function(name) {
+            var fileName;
+
+            fileName = nameToFileName(name);
+
+            if (audioElements[fileName]) {
+                audioElements[fileName].play();
+            }
+        });
+
+    </script>
+</html>
