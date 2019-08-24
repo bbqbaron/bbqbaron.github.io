@@ -1,4 +1,5 @@
 +++
+title = "What is the color of Goblins? (It's red)"
 date = 2019-08-21
 +++
 
