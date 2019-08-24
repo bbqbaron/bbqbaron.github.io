@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://bbqbaron.github.io/sitemap.xml
